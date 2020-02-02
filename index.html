@@ -16,11 +16,19 @@ function getCSS()
         datetoday.setTime(timenow);
         thehour = datetoday.getHours();
 
+        if (thehour<6:00)
+
             display = "https://radcliffe-bai.github.io/media/css/night.css";
 
+       else if (thehour>18:00)
+
             display = "https://radcliffe-bai.github.io/media/css/night.css";   
-      
+
+        else if (thehour>6:00)
+           
             display = "https://radcliffe-bai.github.io/media/css/day.css";
+
+        else if (thehour<18:00)
 
             display = "https://radcliffe-bai.github.io/media/css/day.css";
       

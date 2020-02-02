@@ -2457,3 +2457,11 @@ ul.links li:hover .bg {
     background-color: #aaa;
   }
 }
+
+    header {background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url(https://i.loli.net/2020/02/02/DlLzsmIEd4wqupk.jpg);}
+    
+    
+    .valine {
+        display: none;
+      }
+    
