@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://radcliffe-bai.github.io</id>
     <title>Pab&apos;s lovely blog</title>
-    <updated>2020-02-04T03:22:50.578Z</updated>
+    <updated>2020-02-07T08:46:56.108Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://radcliffe-bai.github.io"/>
     <link rel="self" href="https://radcliffe-bai.github.io/atom.xml"/>
@@ -10,6 +10,316 @@
     <logo>https://radcliffe-bai.github.io/images/avatar.png</logo>
     <icon>https://radcliffe-bai.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Pab&apos;s lovely blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Deepin Linux的IDE配置记录（VSCode）]]></title>
+        <id>https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode</id>
+        <link href="https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode">
+        </link>
+        <updated>2020-02-07T08:40:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>话说，我们安装完美观的Deepin Linux之后，首先应该做什么呢？<s>打开应用商店</s> 安装完这样一款Linux之后，当然是要写代码啦～ 但是，Deepin下并没有Dev-C++，(wine,crossover安装的会编译出一个exe,用不了)，所以就只能看看有没有别的办法来配置一个IDE环境了：</p>
+<ol>
+<li>
+<p>运行更新命令</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt upgrade
+</code></pre>
+</li>
+<li>
+<p>安装必要软件</p>
+<pre><code class="language-bash">sudo apt-get install build-essential
+</code></pre>
+</li>
+<li>
+<p>在应用商店安装VSCode</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/02/07/TLpdjrMYuv86Vns.png" alt="深度截图_20200207145948.png" loading="lazy"></figure>
+</li>
+<li>
+<p>下载插件/中文包</p>
+<ul>
+<li>Bracket Pair Colorizer</li>
+<li>C/C++</li>
+<li>C/C++ Clang Command Adapter</li>
+<li>C/C++ Snippets</li>
+<li>Code Runner</li>
+<li>One Dark Pro</li>
+<li>GBKtoUTF8</li>
+<li>Include Autocomplete</li>
+<li>搜索Chinese</li>
+</ul>
+</li>
+<li>
+<p>配置IDE环境</p>
+<ol>
+<li>
+<p>先创建一个文件随便写点东西（<s>hello world</s>）</p>
+</li>
+<li>
+<p>按快捷键ctrl + shift + D，点击设置图标，弹出的选择中选C++（GDB/LLDB）</p>
+</li>
+<li>
+<p>在生成的launch.json文件中，把里面的内容删了，再把下面的代码复制进去</p>
+<pre><code class="language-json">{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+
+        {
+            &quot;name&quot;: &quot;(gdb) Launch&quot;,                                 //配置名称，会在启动配置的下拉菜单中显示
+            &quot;type&quot;: &quot;cppdbg&quot;,                                       //配置类型，只能为cppdbg
+            &quot;request&quot;: &quot;launch&quot;,                                    //请求类型，可以为launch或attach
+            &quot;program&quot;: &quot; ${workspaceFolder}/a.out&quot;,             //将要调试的程序的路径
+            &quot;args&quot;: [],                                             //调试时传递给程序的命令行参数
+            &quot;stopAtEntry&quot;: false,                                   //设为true程序会暂停在入口处
+            &quot;cwd&quot;: &quot;$ {workspaceFolder}&quot;,                            //调试程序时的工作目录
+            &quot;environment&quot;: [],                                      //环境变量
+            &quot;externalConsole&quot;: false,                               
+            &quot;MIMode&quot;: &quot;gdb&quot;,                                        
+            &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,                       
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: true
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build&quot;                               
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>
+<p>按F5调试，此时弹出一个信息框，选配置任务，选择后点击Others，跳出tasks.json。</p>
+<p>同理，将里面的内容删除，再复制进下面的代码:</p>
+<pre><code class="language-json">{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+ // for the documentation about the tasks.json format
+    &quot;version&quot;: &quot;2.0.0&quot;,
+ &quot;tasks&quot;: [
+        {
+         &quot;label&quot;: &quot;build&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;g++&quot;,
+            &quot;args&quot;: [
+                &quot; ${file}&quot;,
+                &quot;-o&quot;,
+                &quot;$ {workspaceRoot}/a.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>
+<p>打开终端，运行一下命令：</p>
+<pre><code class="language-bash">sudo apt-get install clang
+</code></pre>
+</li>
+<li>
+<p>打开文件-首选项-设置，点开右上角的代码按钮，打开settings.json，删除原内容，再复制进以下代码：</p>
+<pre><code class="language-json">{
+    &quot;files.associations&quot;: {
+        &quot;iostream&quot;: &quot;cpp&quot;,
+        &quot;ostream&quot;: &quot;cpp&quot;
+    },
+    //&quot;files.defaultLanguage&quot;: &quot;cpp&quot;, // ctrl+N新建文件后默认的语言
+
+    &quot;code-runner.runInTerminal&quot;: true, // 设置成false会在“输出”中输出，无法交互
+    &quot;code-runner.executorMap&quot;: {
+        //&quot;c&quot;: &quot;cd  $dir &amp;&amp; clang $ fileName -o  $fileNameWithoutExt.out -g -Wall -static-libgcc -fcolor-diagnostics -std=c11 &amp;&amp; $ dir $fileNameWithoutExt&quot;,
+        //&quot;cpp&quot;: &quot;cd $ dir &amp;&amp; clang++  $fileName -o $ fileNameWithoutExt.out -g -Wall -static-libgcc -fcolor-diagnostics -std=c++14 &amp;&amp;  $dir$ fileNameWithoutExt&quot;
+        }, // 设置code runner的命令行
+    &quot;code-runner.saveFileBeforeRun&quot;: true, // run code前保存
+    &quot;code-runner.preserveFocus&quot;: true, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    &quot;code-runner.clearPreviousOutput&quot;: false, // 每次run code前清空属于code runner的终端消息
+
+    &quot;C_Cpp.clang_format_sortIncludes&quot;: true, // 格式化时调整include的顺序（按字母排序）
+    &quot;C_Cpp.intelliSenseEngine&quot;: &quot;Default&quot;, // 可以为Default或Tag Parser，后者较老，功能较简单。具体差别参考cpptools插件文档
+    &quot;C_Cpp.errorSquiggles&quot;: &quot;Disabled&quot;, // 因为有clang的lint，所以关掉
+    &quot;editor.formatOnType&quot;: false, // 输入时就进行格式化，默认触发字符较少，分号可以触发
+    &quot;editor.snippetSuggestions&quot;: &quot;top&quot;, // snippets代码优先显示补全
+
+    &quot;clang.cflags&quot;: [ // 控制c语言静态检测的参数
+        //&quot;--target=x86_64-w64-mingw&quot;,
+        &quot;-std=c11&quot;,
+        &quot;-Wall&quot;
+    ],
+    &quot;clang.cxxflags&quot;: [ // 控制c++静态检测时的参数
+        //&quot;--target=x86_64-w64-mingw&quot;,
+        &quot;-std=c++14&quot;,
+        &quot;-Wall&quot;
+    ],
+    &quot;editor.fontSize&quot;: 20,
+    //&quot;clang.completion.enable&quot;:false // 效果稍好，但太卡，故关掉
+}
+</code></pre>
+</li>
+<li>
+<p>记得保存所有的json文件（<s>Ctrl+S</s>），回到原来的程序点击右上角的<img src="https://i.loli.net/2020/02/07/871qgVeYOXrM2oB.png" alt="深度截图_选择区域_20200207151005.png" style="zoom:67%;" />或者按Ctrl+Alt+N，下方的控制台就输出Hello World了。</p>
+</li>
+</ol>
+</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>话说，我们安装完美观的Deepin Linux之后，首先应该做什么呢？<s>打开应用商店</s> 安装完这样一款Linux之后，当然是要写代码啦～ 但是，Deepin下并没有Dev-C++，(wine,crossover安装的会编译出一个exe,用不了)，所以就只能看看有没有别的办法来配置一个IDE环境了：</p>
+<ol>
+<li>
+<p>运行更新命令</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt upgrade
+</code></pre>
+</li>
+<li>
+<p>安装必要软件</p>
+<pre><code class="language-bash">sudo apt-get install build-essential
+</code></pre>
+</li>
+<li>
+<p>在应用商店安装VSCode</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2020/02/07/TLpdjrMYuv86Vns.png" alt="深度截图_20200207145948.png" loading="lazy"></figure>
+</li>
+<li>
+<p>下载插件/中文包</p>
+<ul>
+<li>Bracket Pair Colorizer</li>
+<li>C/C++</li>
+<li>C/C++ Clang Command Adapter</li>
+<li>C/C++ Snippets</li>
+<li>Code Runner</li>
+<li>One Dark Pro</li>
+<li>GBKtoUTF8</li>
+<li>Include Autocomplete</li>
+<li>搜索Chinese</li>
+</ul>
+</li>
+<li>
+<p>配置IDE环境</p>
+<ol>
+<li>
+<p>先创建一个文件随便写点东西（<s>hello world</s>）</p>
+</li>
+<li>
+<p>按快捷键ctrl + shift + D，点击设置图标，弹出的选择中选C++（GDB/LLDB）</p>
+</li>
+<li>
+<p>在生成的launch.json文件中，把里面的内容删了，再把下面的代码复制进去</p>
+<pre><code class="language-json">{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+
+        {
+            &quot;name&quot;: &quot;(gdb) Launch&quot;,                                 //配置名称，会在启动配置的下拉菜单中显示
+            &quot;type&quot;: &quot;cppdbg&quot;,                                       //配置类型，只能为cppdbg
+            &quot;request&quot;: &quot;launch&quot;,                                    //请求类型，可以为launch或attach
+            &quot;program&quot;: &quot; ${workspaceFolder}/a.out&quot;,             //将要调试的程序的路径
+            &quot;args&quot;: [],                                             //调试时传递给程序的命令行参数
+            &quot;stopAtEntry&quot;: false,                                   //设为true程序会暂停在入口处
+            &quot;cwd&quot;: &quot;$ {workspaceFolder}&quot;,                            //调试程序时的工作目录
+            &quot;environment&quot;: [],                                      //环境变量
+            &quot;externalConsole&quot;: false,                               
+            &quot;MIMode&quot;: &quot;gdb&quot;,                                        
+            &quot;miDebuggerPath&quot;: &quot;/usr/bin/gdb&quot;,                       
+            &quot;setupCommands&quot;: [
+                {
+                    &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
+                    &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
+                    &quot;ignoreFailures&quot;: true
+                }
+            ],
+            &quot;preLaunchTask&quot;: &quot;build&quot;                               
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>
+<p>按F5调试，此时弹出一个信息框，选配置任务，选择后点击Others，跳出tasks.json。</p>
+<p>同理，将里面的内容删除，再复制进下面的代码:</p>
+<pre><code class="language-json">{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+ // for the documentation about the tasks.json format
+    &quot;version&quot;: &quot;2.0.0&quot;,
+ &quot;tasks&quot;: [
+        {
+         &quot;label&quot;: &quot;build&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;g++&quot;,
+            &quot;args&quot;: [
+                &quot; ${file}&quot;,
+                &quot;-o&quot;,
+                &quot;$ {workspaceRoot}/a.out&quot;
+            ],
+            &quot;group&quot;: {
+                &quot;kind&quot;: &quot;build&quot;,
+                &quot;isDefault&quot;: true
+            }
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>
+<p>打开终端，运行一下命令：</p>
+<pre><code class="language-bash">sudo apt-get install clang
+</code></pre>
+</li>
+<li>
+<p>打开文件-首选项-设置，点开右上角的代码按钮，打开settings.json，删除原内容，再复制进以下代码：</p>
+<pre><code class="language-json">{
+    &quot;files.associations&quot;: {
+        &quot;iostream&quot;: &quot;cpp&quot;,
+        &quot;ostream&quot;: &quot;cpp&quot;
+    },
+    //&quot;files.defaultLanguage&quot;: &quot;cpp&quot;, // ctrl+N新建文件后默认的语言
+
+    &quot;code-runner.runInTerminal&quot;: true, // 设置成false会在“输出”中输出，无法交互
+    &quot;code-runner.executorMap&quot;: {
+        //&quot;c&quot;: &quot;cd  $dir &amp;&amp; clang $ fileName -o  $fileNameWithoutExt.out -g -Wall -static-libgcc -fcolor-diagnostics -std=c11 &amp;&amp; $ dir $fileNameWithoutExt&quot;,
+        //&quot;cpp&quot;: &quot;cd $ dir &amp;&amp; clang++  $fileName -o $ fileNameWithoutExt.out -g -Wall -static-libgcc -fcolor-diagnostics -std=c++14 &amp;&amp;  $dir$ fileNameWithoutExt&quot;
+        }, // 设置code runner的命令行
+    &quot;code-runner.saveFileBeforeRun&quot;: true, // run code前保存
+    &quot;code-runner.preserveFocus&quot;: true, // 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    &quot;code-runner.clearPreviousOutput&quot;: false, // 每次run code前清空属于code runner的终端消息
+
+    &quot;C_Cpp.clang_format_sortIncludes&quot;: true, // 格式化时调整include的顺序（按字母排序）
+    &quot;C_Cpp.intelliSenseEngine&quot;: &quot;Default&quot;, // 可以为Default或Tag Parser，后者较老，功能较简单。具体差别参考cpptools插件文档
+    &quot;C_Cpp.errorSquiggles&quot;: &quot;Disabled&quot;, // 因为有clang的lint，所以关掉
+    &quot;editor.formatOnType&quot;: false, // 输入时就进行格式化，默认触发字符较少，分号可以触发
+    &quot;editor.snippetSuggestions&quot;: &quot;top&quot;, // snippets代码优先显示补全
+
+    &quot;clang.cflags&quot;: [ // 控制c语言静态检测的参数
+        //&quot;--target=x86_64-w64-mingw&quot;,
+        &quot;-std=c11&quot;,
+        &quot;-Wall&quot;
+    ],
+    &quot;clang.cxxflags&quot;: [ // 控制c++静态检测时的参数
+        //&quot;--target=x86_64-w64-mingw&quot;,
+        &quot;-std=c++14&quot;,
+        &quot;-Wall&quot;
+    ],
+    &quot;editor.fontSize&quot;: 20,
+    //&quot;clang.completion.enable&quot;:false // 效果稍好，但太卡，故关掉
+}
+</code></pre>
+</li>
+<li>
+<p>记得保存所有的json文件（<s>Ctrl+S</s>），回到原来的程序点击右上角的<img src="https://i.loli.net/2020/02/07/871qgVeYOXrM2oB.png" alt="深度截图_选择区域_20200207151005.png" style="zoom:67%;" />或者按Ctrl+Alt+N，下方的控制台就输出Hello World了。</p>
+</li>
+</ol>
+</li>
+</ol>
+<!-- more -->
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Markdown 测试文章]]></title>
         <id>https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang</id>
