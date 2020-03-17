@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://radcliffe-bai.github.io</id>
     <title>Pab&apos;s lovely blog</title>
-    <updated>2020-03-17T12:30:11.501Z</updated>
+    <updated>2020-03-17T12:37:39.466Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://radcliffe-bai.github.io"/>
     <link rel="self" href="https://radcliffe-bai.github.io/atom.xml"/>
@@ -317,7 +317,6 @@ sudo apt upgrade
 </ol>
 </li>
 </ol>
-<!-- more -->
 ]]></content>
     </entry>
     <entry>
@@ -326,51 +325,5 @@ sudo apt upgrade
         <link href="https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang/">
         </link>
         <updated>2020-02-02T10:36:13.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="这是h1">这是H1</h1>
-<h2 id="这是h2">这是H2</h2>
-<h3 id="这是h3">这是H3</h3>
-<h4 id="这是h4">这是H4</h4>
-<h5 id="这是h5">这是H5</h5>
-<h6 id="这是h6">这是H6</h6>
-<p><em>单星号斜体</em></p>
-<p><em>单下划线_斜体</em></p>
-<p>*<em>双星号*<em>加粗</em></em></p>
-<p>_<em>双下划线_<em>加粗</em></em></p>
-<p><s>删除线</s></p>
-<p>这是单行代码块：<code>cout&lt;&lt;&quot;Hello World!!&quot;&lt;&lt;endl</code></p>
-<p>这是多行代码块：</p>
-<pre><code class="language-cpp">#include &lt;iostream&gt;
-using namespace std;
-int main()
-{
-    int a,b;
-    cin&gt;&gt;a&gt;&gt;b;
-    cout&lt;&lt;a+b;
-    return 0;
-}
-</code></pre>
-<blockquote>
-<p>引用</p>
-<blockquote>
-<p>引用中的引用</p>
-</blockquote>
-</blockquote>
-<p>这是无序列表：</p>
-<ul>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
-</ul>
-<p>这是有序列表：</p>
-<ol>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
-</ol>
-<hr>
-<p>被分隔了</p>
-<p>这是自动链接：<a href="https://Radcliffe-Bai.github.io">https://Radcliffe-Bai.github.io</a></p>
-<p>这是标题链接：<a href="Radcliffe-Bai.github.io">My lovely blog</a></p>
-]]></content>
     </entry>
 </feed>
