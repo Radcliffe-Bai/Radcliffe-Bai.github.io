@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://radcliffe-bai.github.io</id>
     <title>Pab&apos;s lovely blog</title>
-    <updated>2020-02-13T01:34:51.837Z</updated>
+    <updated>2020-03-17T12:30:11.501Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://radcliffe-bai.github.io"/>
     <link rel="self" href="https://radcliffe-bai.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Pab&apos;s lovely blog</rights>
     <entry>
         <title type="html"><![CDATA[Deepin Linux的IDE配置记录（VSCode）]]></title>
-        <id>https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode</id>
-        <link href="https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode">
+        <id>https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode/</id>
+        <link href="https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode/">
         </link>
         <updated>2020-02-07T08:40:15.000Z</updated>
         <summary type="html"><![CDATA[<p>话说，我们安装完美观的Deepin Linux之后，首先应该做什么呢？<s>打开应用商店</s> 安装完这样一款Linux之后，当然是要写代码啦～ 但是，Deepin下并没有Dev-C++，(wine,crossover安装的会编译出一个exe,用不了)，所以就只能看看有没有别的办法来配置一个IDE环境了：</p>
@@ -322,8 +322,8 @@ sudo apt upgrade
     </entry>
     <entry>
         <title type="html"><![CDATA[Markdown 测试文章]]></title>
-        <id>https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang</id>
-        <link href="https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang">
+        <id>https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang/</id>
+        <link href="https://radcliffe-bai.github.io/post/markdown-ce-shi-wen-zhang/">
         </link>
         <updated>2020-02-02T10:36:13.000Z</updated>
         <content type="html"><![CDATA[<h1 id="这是h1">这是H1</h1>
