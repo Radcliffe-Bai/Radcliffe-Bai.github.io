@@ -1,0 +1,200 @@
+<html>
+      <head>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
+        <meta charset="utf-8">
+        <meta name="referrer" content="never">
+        <title>macOS清除launchpad图标方法 | Pab&#39;s lovely blog</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://radcliffe-bai.github.io/styles/main.css">
+          <script src="https://radcliffe-bai.github.io/media/scripts/mdui.min.js"></script>
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Ma+Shan+Zheng&display=swap" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+        <script src="https://radcliffe-bai.github.io/media/scripts/script.js"></script>
+        <script >hljs.initHighlightingOnLoad();</script>
+        
+
+    </head>
+    <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
+        <header class="index-img mdui-m-b-3" >
+                          <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
+                <ul class="mdui-menu" id="demo-attr-cascade">
+                
+                        <li class="mdui-menu-item">
+                          <a href="/" class="mdui-ripple">首页</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/archives" class="mdui-ripple">归档</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/tags" class="mdui-ripple">标签</a>
+                        </li>
+                
+                        <li class="mdui-menu-item">
+                          <a href="/post/about" class="mdui-ripple">关于</a>
+                        </li>
+                
+                      </ul>
+
+        </header>
+        <div class="mdui-container post">
+                <div class="mdui-row">
+                        <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
+                         <article class="mdui-shadow-10 mdui-p-a-2 post-list">
+                           <div class="mdui-typo-display-1 mdui-m-b-3">macOS清除launchpad图标方法</div>
+                           <a  class="index-list-biaoqian ">2020-08-27</a>
+                           <div class="mdui-typo mdui-m-t-3 post-neirong"><h3 id="先讲方法">先讲方法：</h3>
+<ol>
+<li>
+<p>在launchpad中，把要删除的图标拖向dock栏，创建快捷方式</p>
+</li>
+<li>
+<p>在dock栏右键，选项，在finder中打开</p>
+<img src="https://i.loli.net/2020/08/27/I7ZY83guqxPFcAf.png" alt="截屏2020-08-27 下午8.50.47"  />
+</li>
+<li>
+<p>在打开的窗口中删除对应文件<img src="https://i.loli.net/2020/08/27/vsrnmfhBUguOeR8.png" alt="截屏2020-08-27 下午8.53.20" loading="lazy"></p>
+</li>
+<li>
+<p>完成！！😄</p>
+<h3 id="再来说说其他发现">再来说说其他发现</h3>
+<p>我们都知道，其实LaunchPad显示的是macOS中Application（应用程序）文件夹的内容，但是有时LaunchPad会显示一些奇怪顽固的图标，无法删除（应用程序文件夹里也找不到）。这其实是因为macOS有两个Application文件夹。一个是全局的macOS的Application文件夹，一般软件安装在这里。还有一个用户的Application文件夹，位于个人文件中👇![截屏2020-08-27 下午8.58.41](/Users/albus/Library/Application Support/typora-user-images/截屏2020-08-27 下午8.58.41.png)</p>
+<p>当图标无法找到的时候，可以考虑一下这个文件夹😄</p>
+<p>另外：当图标上已经有一个问号❓时，表明此文件已经不存在，直接把图标拖到废纸篓就行了</p>
+<p>最后，实在删不掉，考虑更改LaunchPad数据库吧👇</p>
+<p>[mac删除launchpad中无法正常移除的图标](</p>
+</li>
+</ol>
+</div>
+                              <div class="mdui-divider mdui-m-t-3"></div>
+                              <div class="mdui-row-xs-2 mdui-m-t-2">
+  <div class="mdui-col"> </div>
+ <div class="mdui-col"><div class="mdui-text-right "><a href="https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode/">Deepin Linux的IDE配置记录（VSCode）</a></div> </div>
+                                </div>
+                                <div class="mdui-divider mdui-m-t-2"></div>
+   
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '36302a1d9e788be59967',
+    clientSecret: '2559e09ef27aa6e5bab37c27b8f9ca2cb563050e',
+    repo: 'Radcliffe-Bai.github.io',
+    owner: 'Radcliffe-Bai',
+    admin: ['Radcliffe-Bai'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+ <script src="https://radcliffe-bai.github.io/media/scripts/Valine.min.js"></script>
+ <div class="comment"></div>
+
+<script>
+      new Valine({
+            el: '.comment',
+
+
+
+            path: window.location.pathname,
+            pageSize: 30,
+            avatar:'mm', 
+       })
+
+    </script> 
+<script>
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+</script>
+                         </article>
+                 <div class="toc-container mdui-float-right">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%85%88%E8%AE%B2%E6%96%B9%E6%B3%95">先讲方法：</a></li>
+<li><a href="#%E5%86%8D%E6%9D%A5%E8%AF%B4%E8%AF%B4%E5%85%B6%E4%BB%96%E5%8F%91%E7%8E%B0">再来说说其他发现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+
+                        </div>
+                 </div>
+          
+        </div>
+        <script data-no-instant>
+    (function ($) {
+        $.extend({
+            adamsOverload: function () {
+                $.viewImage({
+                    'target'  : '.post-neirong img',
+                    'exclude' : '.vsmile-icons img , .song-links-item img',
+                    'delay'   : 300
+                });
+            }
+        });
+    })(jQuery);
+    jQuery.adamsOverload();
+</script>
+        <footer class="footer mdui-m-t-5 mdui-text-center">
+               <nav class="social-links">
+                      <ul>
+                      
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                      </ul>
+                    </nav>
+                    <div class="copyright">
+                      <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> <br/> Theme <a href="https://github.com/shanbufun/gridea-theme-jia" target="_blank"  title="佳"  >Jia</a> by <a href="https://shanbu.fun/" target="_blank"  title="山卜方" >Shanbufun</a> </p>
+                  </div>
+              </footer>
+    </body>
+</html>
