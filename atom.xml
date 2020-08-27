@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://radcliffe-bai.github.io</id>
     <title>Pab&apos;s lovely blog</title>
-    <updated>2020-08-27T13:26:33.903Z</updated>
+    <updated>2020-08-27T13:28:03.415Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://radcliffe-bai.github.io"/>
     <link rel="self" href="https://radcliffe-bai.github.io/atom.xml"/>
@@ -16,6 +16,52 @@
         <link href="https://radcliffe-bai.github.io/post/macos-qing-chu-launchpad-tu-biao-fang-fa/">
         </link>
         <updated>2020-08-27T13:08:30.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="先讲方法">先讲方法：</h3>
+<ol>
+<li>
+<p>在launchpad中，把要删除的图标拖向dock栏，创建快捷方式</p>
+</li>
+<li>
+<p>在dock栏右键，选项，在finder中打开</p>
+<img src="https://i.loli.net/2020/08/27/I7ZY83guqxPFcAf.png" alt="截屏2020-08-27 下午8.50.47"  />
+</li>
+<li>
+<p>在打开的窗口中删除对应文件<img src="https://i.loli.net/2020/08/27/vsrnmfhBUguOeR8.png" alt="截屏2020-08-27 下午8.53.20" loading="lazy"></p>
+</li>
+<li>
+<p>完成！！😄</p>
+<h3 id="再来说说其他发现">再来说说其他发现</h3>
+<p>我们都知道，其实LaunchPad显示的是macOS中Application（应用程序）文件夹的内容，但是有时LaunchPad会显示一些奇怪顽固的图标，无法删除（应用程序文件夹里也找不到）。这其实是因为macOS有两个Application文件夹。一个是全局的macOS的Application文件夹，一般软件安装在这里。还有一个用户的Application文件夹，位于个人文件中👇![截屏2020-08-27 下午8.58.41](/Users/albus/Library/Application Support/typora-user-images/截屏2020-08-27 下午8.58.41.png)</p>
+<p>当图标无法找到的时候，可以考虑一下这个文件夹😄</p>
+<p>另外：当图标上已经有一个问号❓时，表明此文件已经不存在，直接把图标拖到废纸篓就行了</p>
+<p>最后，实在删不掉，考虑更改LaunchPad数据库吧👇</p>
+</li>
+</ol>
+<p><a href="https://blog.csdn.net/qq_36004521/article/details/80740491">mac删除launchpad中无法正常移除的图标</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="先讲方法">先讲方法：</h3>
+<ol>
+<li>
+<p>在launchpad中，把要删除的图标拖向dock栏，创建快捷方式</p>
+</li>
+<li>
+<p>在dock栏右键，选项，在finder中打开</p>
+<img src="https://i.loli.net/2020/08/27/I7ZY83guqxPFcAf.png" alt="截屏2020-08-27 下午8.50.47"  />
+</li>
+<li>
+<p>在打开的窗口中删除对应文件<img src="https://i.loli.net/2020/08/27/vsrnmfhBUguOeR8.png" alt="截屏2020-08-27 下午8.53.20" loading="lazy"></p>
+</li>
+<li>
+<p>完成！！😄</p>
+<h3 id="再来说说其他发现">再来说说其他发现</h3>
+<p>我们都知道，其实LaunchPad显示的是macOS中Application（应用程序）文件夹的内容，但是有时LaunchPad会显示一些奇怪顽固的图标，无法删除（应用程序文件夹里也找不到）。这其实是因为macOS有两个Application文件夹。一个是全局的macOS的Application文件夹，一般软件安装在这里。还有一个用户的Application文件夹，位于个人文件中👇![截屏2020-08-27 下午8.58.41](/Users/albus/Library/Application Support/typora-user-images/截屏2020-08-27 下午8.58.41.png)</p>
+<p>当图标无法找到的时候，可以考虑一下这个文件夹😄</p>
+<p>另外：当图标上已经有一个问号❓时，表明此文件已经不存在，直接把图标拖到废纸篓就行了</p>
+<p>最后，实在删不掉，考虑更改LaunchPad数据库吧👇</p>
+</li>
+</ol>
+<p><a href="https://blog.csdn.net/qq_36004521/article/details/80740491">mac删除launchpad中无法正常移除的图标</a></p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Deepin Linux的IDE配置记录（VSCode）]]></title>
