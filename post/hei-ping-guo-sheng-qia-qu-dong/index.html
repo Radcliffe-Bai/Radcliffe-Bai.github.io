@@ -3,7 +3,7 @@
         <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no" />
         <meta charset="utf-8">
         <meta name="referrer" content="never">
-        <title>macOS清除launchpad图标方法 | Pab&#39;s lovely blog</title>
+        <title>黑苹果声卡驱动 | Pab&#39;s lovely blog</title>
         <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css">
         <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://radcliffe-bai.github.io/styles/main.css">
@@ -17,7 +17,7 @@
 
     </head>
     <body class="mdui-theme-primary-purple mdui-theme-accent-purple">
-        <header class="index-img mdui-m-b-3"  style="background-image: url(https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/Zy1xekJvfaRVhpT.png);" >
+        <header class="index-img mdui-m-b-3" >
                           <button class="mdui-btn  mdui-btn-icon mdui-btn-dense mdui-color-theme-500 mdui-ripple yinying mdui-m-t-1 mdui-m-l-1" mdui-menu="{target: '#demo-attr-cascade'}"><i class="mdui-icon material-icons">&#xe5d2;</i></button>
                 <ul class="mdui-menu" id="demo-attr-cascade">
                 
@@ -44,36 +44,55 @@
                 <div class="mdui-row">
                         <div class="mdui-col-md-8 mdui-col-offset-md-2 ">
                          <article class="mdui-shadow-10 mdui-p-a-2 post-list">
-                           <div class="mdui-typo-display-1 mdui-m-b-3">macOS清除launchpad图标方法</div>
-                           <a  class="index-list-biaoqian ">2020-08-27</a>
-                           <div class="mdui-typo mdui-m-t-3 post-neirong"><h3 id="先讲方法">先讲方法：</h3>
+                           <div class="mdui-typo-display-1 mdui-m-b-3">黑苹果声卡驱动</div>
+                           <a  class="index-list-biaoqian ">2020-10-02</a>
+                           <div class="mdui-typo mdui-m-t-3 post-neirong"><h4 id="写在前面">写在前面</h4>
+<p>安装完黑苹果后，便是各个硬件的驱动了。这篇就来介绍一下Clover引导的声卡驱动的两种方法，应该就能驱动市面上绝大部分的声卡了。下面就来看看吧。</p>
+<h4 id="材料用具">材料用具</h4>
+<ol>
+<li>Clover Configuration</li>
+<li><a href="https://github.com/acidanthera/AppleALC/releases">Apple ALC.kext</a></li>
+<li><a href="https://github.com/acidanthera/Lilu/releases">Lilu.kext</a></li>
+<li><a href="https://github.com/acidanthera/AppleALC/wiki/Supported-codecs">LayoutID速查表</a></li>
+<li><a href="https://github.com/chris1111/VoodooHDA-2.9.2-Clover-V14/releases/">VoodooHDA.kext</a></li>
+<li>AIDA64</li>
+</ol>
+<h4 id="方法1applealc驱动">方法1：AppleALC驱动</h4>
 <ol>
 <li>
-<p>在launchpad中，把要删除的图标拖向dock栏，创建快捷方式</p>
+<p>确保VoodooHDA.kext已被卸载，一般在s\l\e目录下或者在这两个文件夹中：</p>
+<figure data-type="image" tabindex="1"><img src="/Users/albus/Library/Application%20Support/typora-user-images/%E6%88%AA%E5%B1%8F2020-10-02%20%E4%B8%8A%E5%8D%8811.18.06.png" alt="截屏2020-10-02 上午11.18.06" loading="lazy"></figure>
+<p>还有就是要注意s\l\e目录下的AppleHDA.kext是否健在，如果之前删了要恢复回去。</p>
 </li>
 <li>
-<p>在dock栏右键，选项，在finder中打开</p>
-<img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/I7ZY83guqxPFcAf.png" alt="截屏2020-08-27 下午8.50.47"  />
+<p>把下载好的AppleALC.kext和Lilu.kext丢进Others文件夹（或者对应OSX版本的文件夹也行）。</p>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/%E6%88%AA%E5%B1%8F2020-10-02%20%E4%B8%8A%E5%8D%8811.19.47.png" alt="截屏2020-10-02 上午11.19.47" loading="lazy"></figure>
 </li>
 <li>
-<p>在打开的窗口中删除对应文件<img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/vsrnmfhBUguOeR8.png" alt="截屏2020-08-27 下午8.53.20" loading="lazy"></p>
+<p>查找一下声卡型号，可以用AIDA64，也可以直接找，具体方法百度（加上关键词“ALC”可以更快找到）。找到声卡型号后，在速查表里面找一下有没有，一般都会有的。</p>
 </li>
 <li>
-<p>完成！！😄</p>
-<h3 id="再来说说其他发现">再来说说其他发现</h3>
-<p>我们都知道，其实LaunchPad显示的是macOS中Application（应用程序）文件夹的内容，但是有时LaunchPad会显示一些奇怪顽固的图标，无法删除（应用程序文件夹里也找不到）。这其实是因为macOS有两个Application文件夹。一个是全局的macOS的Application文件夹，一般软件安装在这里。还有一个用户的Application文件夹，位于个人文件中👇![截屏2020-08-27 下午8.58.41](https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/截屏2020-08-27 下午8.58.41.png)</p>
-<p>当图标无法找到的时候，可以考虑一下这个文件夹😄</p>
-<p>另外：当图标上已经有一个问号❓时，表明此文件已经不存在，直接把图标拖到废纸篓就行了</p>
-<p>最后，实在删不掉，考虑更改LaunchPad数据库吧👇</p>
+<p>用Clover Configuration打开config.plist，在这里注入相应的LayoutID。一个不行就试另一个，每次改完要重启查看是否驱动成功。<img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/41417-9e5d9e3fbf8f84b2.png" alt="41417-9e5d9e3fbf8f84b2" loading="lazy"></p>
+</li>
+<li>
+<p>驱动成功就能看到这里有声音设备了。<img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/1.png" alt="1" loading="lazy"></p>
 </li>
 </ol>
-<p><a href="https://blog.csdn.net/qq_36004521/article/details/80740491">mac删除launchpad中无法正常移除的图标</a></p>
-<!-- more -->
+<h4 id="方法2voodoo万能驱动">方法2：Voodoo万能驱动</h4>
+<p>直接把下载好的VoodooHDA.kext扔进Others文件夹或对应版本的文件夹，重启一下，看看是否成功驱动（此方法作为备用方法，方法1不行才使用该方法）</p>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/%E6%88%AA%E5%B1%8F2020-10-02%20%E4%B8%8A%E5%8D%8811.30.07.png" alt="截屏2020-10-02 上午11.30.07" loading="lazy"></figure>
+<h4 id="优点缺点">优点&amp;缺点</h4>
+<ol>
+<li>Apple ALC驱动更加接近原生驱动，更加稳定，可能会有点麻烦（其实也不难），但用起来比较顺手。</li>
+<li>有些型号没有LayoutID，想用Apple ALC只能自己用Linux调教，可以看看<a href="https://blog.daliansky.net/Use-AppleALC-sound-card-to-drive-the-correct-posture-of-AppleHDA.html">黑果小兵的文章</a>。</li>
+<li>Voodoo虽简单，但是不稳定，需要在偏好设置里手动切换声音设备，有时可能会有爆音。<img src="https://cdn.jsdelivr.net/gh/Radcliffe-Bai/PicBed@master/%E6%88%AA%E5%B1%8F2020-10-02%20%E4%B8%8A%E5%8D%8811.23.23.png" alt="截屏2020-10-02 上午11.23.23" loading="lazy"></li>
+<li>总之，推荐方法1，不能成功时才使用方法 2</li>
+</ol>
 </div>
                               <div class="mdui-divider mdui-m-t-3"></div>
                               <div class="mdui-row-xs-2 mdui-m-t-2">
-  <div class="mdui-col"> <div class="mdui-text-left"><a href="https://radcliffe-bai.github.io/post/hei-ping-guo-sheng-qia-qu-dong/">黑苹果声卡驱动</a></div></div>
- <div class="mdui-col"><div class="mdui-text-right "><a href="https://radcliffe-bai.github.io/post/deepin-linux-de-ide-pei-zhi-ji-lu-vscode/">Deepin Linux的IDE配置记录（VSCode）</a></div> </div>
+  <div class="mdui-col"> </div>
+ <div class="mdui-col"><div class="mdui-text-right "><a href="https://radcliffe-bai.github.io/post/macos-qing-chu-launchpad-tu-biao-fang-fa/">macOS清除launchpad图标方法</a></div> </div>
                                 </div>
                                 <div class="mdui-divider mdui-m-t-2"></div>
    
@@ -135,8 +154,15 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E5%85%88%E8%AE%B2%E6%96%B9%E6%B3%95">先讲方法：</a></li>
-<li><a href="#%E5%86%8D%E6%9D%A5%E8%AF%B4%E8%AF%B4%E5%85%B6%E4%BB%96%E5%8F%91%E7%8E%B0">再来说说其他发现</a></li>
+<li>
+<ul>
+<li><a href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2">写在前面</a></li>
+<li><a href="#%E6%9D%90%E6%96%99%E7%94%A8%E5%85%B7">材料用具</a></li>
+<li><a href="#%E6%96%B9%E6%B3%951applealc%E9%A9%B1%E5%8A%A8">方法1：AppleALC驱动</a></li>
+<li><a href="#%E6%96%B9%E6%B3%952voodoo%E4%B8%87%E8%83%BD%E9%A9%B1%E5%8A%A8">方法2：Voodoo万能驱动</a></li>
+<li><a href="#%E4%BC%98%E7%82%B9%E7%BC%BA%E7%82%B9">优点&amp;缺点</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
